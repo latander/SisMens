@@ -1,0 +1,37 @@
+﻿<Window x:Class="SisMens.View.Entidades.Consulta.VConsulta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SisMens.View.Entidades.Consulta"
+        mc:Ignorable="d"
+         Title="Consulta" Height="380" Width="500"
+        WindowStartupLocation="CenterScreen"
+>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label x:Name="label" Content="Pesquisar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,0,0,0"/>
+        <TextBox x:Name="txtPesquisar" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="436" Margin="4"/>
+
+        <DataGrid x:Name="dtgPesquisa" HorizontalAlignment="Center" VerticalAlignment="Top" Height="220" Width="436" 
+                  Grid.Row="1" Margin="4"
+                  ItemsSource="{Binding Resultados}"
+                  SelectedValue="{Binding ResultadoSelecionado}"
+                  AutoGenerateColumns="false">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id, Mode=OneWay}" Width="50" />
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao, Mode=OneWay}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="2" x:Name="btnSelecionar" Content="Selecionar" HorizontalAlignment="Right" Margin="0,0,130,0"  VerticalAlignment="Center" Width="74" Click="btnSelecionar_Click"/>
+        <Button Grid.Row="2" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,35,0" VerticalAlignment="Center" Width="74" Click="btnCancelar_Click"/>
+    </Grid>
+</Window>
