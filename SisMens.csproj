@@ -137,6 +137,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ScripSQL.cs" />
     <Compile Include="ViewModel\Base\DescricaoEnumerado.cs" />
     <Compile Include="ViewModel\Base\VMBase.cs" />
     <Compile Include="ViewModel\Base\VMBaseCadastro.cs" />

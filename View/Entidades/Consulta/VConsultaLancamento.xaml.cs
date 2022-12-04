@@ -44,7 +44,7 @@ namespace SisMens.View.Entidades.Consulta
 
             _Lista.Add(lancamento);    
             
-            return i;
+            return _Lista.Count-1;
         }
 
         private void btnSelecionar_Click(object sender, RoutedEventArgs e)
