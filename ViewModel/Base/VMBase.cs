@@ -6,6 +6,7 @@ using SisMens.View.Entidades.Consulta;
 using SisMens.ViewModel.Consultas;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -77,6 +78,15 @@ namespace SisMens.ViewModel.Base
             }
             else
                 return false;
+        }
+
+        public bool ConsultarTudo<T>(ref ObservableCollection<T> listaCompleta) where T : class, IDescEComum
+        {
+            ObservableCollection<T> newCollection = new ObservableCollection<T>(GetSessao().CreateCriteria<T>().List<T>());
+
+            listaCompleta = newCollection;
+
+            return (listaCompleta.Count > 0);
         }
     }
 }

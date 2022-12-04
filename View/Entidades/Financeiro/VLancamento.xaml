@@ -7,7 +7,7 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:View="clr-namespace:SisMens.View"
              mc:Ignorable="d" 
-             Height="240" Width="600">
+             Height="140" Width="600">
     <Grid x:Name="MainGrid" Background="#FFCFE3FF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -19,33 +19,28 @@
             <RowDefinition Height="45"/>
             <RowDefinition Height="45"/>
             <RowDefinition Height="45"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="45"/>
             <RowDefinition />
         </Grid.RowDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0" Content="ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
-        <TextBox x:Name="txtId" Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" Height="20" Width="50" HorizontalAlignment="Left" Margin="4" Text="{Binding Id}" />
-        <Label Grid.Column="0" Grid.Row="1" Content="Nome" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
-        <TextBox x:Name="txtNome" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="20" Width="280" HorizontalAlignment="Left" Margin="4" Text="{Binding Nome}"/>
-        <Label Grid.Column="2" Grid.Row="1" Content="Data de Nascimento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
-        <DatePicker Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" Text="{Binding DtNasc}"/>
-        <Label Grid.Column="3" Grid.Row="1" Content="Gênero" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
-        <ComboBox x:Name="cbxGenero" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="140" Margin="4"
-                  ItemsSource="{Binding Generos}"
-                  SelectedValue="{Binding Genero}"
+        <TextBox TabIndex="0" x:Name="txtId" Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" Height="20" Width="50" HorizontalAlignment="Left" Margin="4" Text="{Binding Id}" KeyUp="txtId_KeyUp"/>
+        <Label Grid.Column="1" Grid.Row="0" Content="Sócio" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
+        <TextBox x:Name="txtIdSocio" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" Height="20" Width="50" HorizontalAlignment="Left" Margin="4" Text="{Binding IdSocio, Mode=OneWay}"  KeyUp="txtIdSocio_KeyUp"/>
+        <TextBox x:Name="txtNomeSocio" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="20" Width="230" HorizontalAlignment="Left" Margin="60,0,0,4" Text="{Binding NomeSocio, Mode=OneWay}" IsEnabled="false" />
+        <Label Grid.Column="4" Grid.Row="0" Content="Tipo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
+        <ComboBox x:Name="cbxTipo" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="140" Margin="4"
+                  ItemsSource="{Binding TiposLancamento}"
+                  SelectedValue="{Binding TipoLancamento}"
                   DisplayMemberPath="Descricao"
-                  SelectedValuePath="Valor"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="CPF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
-        <TextBox x:Name="txtCPF" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" VerticalAlignment="Bottom" Height="20" Width="140" HorizontalAlignment="Left" Margin="4" Text="{Binding Cpf}"/>
-        <Label Grid.Column="1" Grid.Row="2" Content="E-mail" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
-        <TextBox x:Name="txtEmail" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="20" Width="285" HorizontalAlignment="Left" Margin="4" Text="{Binding Email}"/>
-        <Label Grid.Column="3" Grid.Row="2" Content="Telefone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
-        <xctk:MaskedTextBox Mask="(99) 99999-9999" x:Name="txtTelefone" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="20" Width="140" HorizontalAlignment="Left" Margin="4" Text="{Binding Telefone}"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Endereço" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
-        <TextBox x:Name="txtEndereco" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="20" Width="285" HorizontalAlignment="Left" Margin="4" Text="{Binding Endereco}"/>
-        <Label Grid.Column="2" Grid.Row="3" Content="Valor da Mensalidade" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="4" FontWeight="Bold"/>
-        <xctk:MaskedTextBox Mask="999,99" x:Name="txtVlrMensalidade" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="25" Width="60" HorizontalAlignment="Left" Margin="4" Text="{Binding ValorMensalidade}"/>
-        <View:BotoesCadastros Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Top" Width="290"/>
+                  SelectedValuePath="Valor" />
+        <Label Grid.Column="0" Grid.Row="1" Content="Descrição" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
+        <TextBox x:Name="txtDescricao" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="20" Width="280" HorizontalAlignment="Left" Margin="4" Text="{Binding Descricao}"/>
+        <Label Grid.Column="2" Grid.Row="1" Content="Data de Pagamento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
+        <DatePicker Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0" SelectedDate="{Binding Dtpagto}"/>
+        <Label Grid.Column="4" Grid.Row="1" Content="Valor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0"/>
+        <xctk:MaskedTextBox Mask="999,99" x:Name="txtValor" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom"  Width="60" HorizontalAlignment="Left" Margin="4" Text="{Binding Valor}"/>
+        <CheckBox Grid.Column="1" Grid.Row="2" Content="Pago" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,10" IsChecked="{Binding Pago}" FontWeight="Bold"/>
+        <View:BotoesCadastros Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Top" Width="290"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="10" Margin="6,0,0,0">F2 para pesquisar</TextBlock>
     </Grid>
 </UserControl>

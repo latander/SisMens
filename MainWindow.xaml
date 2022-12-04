@@ -102,11 +102,11 @@
             <Menu IsMainMenu="True">
                 <MenuItem Header="_Cadastro" Template="{StaticResource VsOnline}" >
                     <MenuItem Header="_Sócio" Template="{StaticResource VsMenuSub}" Click="MenuItem_Click" />
-                    <MenuItem Header="_Lançamento" Template="{StaticResource VsMenuSub}" />
+                    <MenuItem Header="_Lançamento" Template="{StaticResource VsMenuSub}" Click="MenuItem_Click_2"/>
                 </MenuItem>
                 <MenuItem Header="_Listar" Template="{StaticResource VsMenuTop}">
                     <MenuItem Header="_Sócios" Template="{StaticResource VsMenuSub}" Click="MenuItem_Click_1"/>
-                    <MenuItem Header="_Lançamentos" Template="{StaticResource VsMenuSub}" />
+                    <MenuItem Header="_Lançamentos" Template="{StaticResource VsMenuSub}" Click="MenuItem_Click_3" />
                 </MenuItem>
             </Menu>
         </StackPanel>

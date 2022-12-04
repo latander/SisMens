@@ -1,7 +1,9 @@
 ﻿using SisMens.Model.Entidades;
+using SisMens.Model.Entidades.Financeiro;
 using SisMens.Model.Entidades.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,9 @@ namespace SisMens.ViewModel.Base
         public abstract void CancelarCadastro();
         public abstract void ExcluirCadastro();
         public abstract void CarregarCadastroPelaConsulta();
+
+        public abstract void CarregarTodos();
+   
     }
 
 
@@ -23,6 +28,7 @@ namespace SisMens.ViewModel.Base
         IDescEComum, new()
     {
         public TCadastro Cadastro { get; protected set; }
+        public ObservableCollection<TCadastro> Todos = new ObservableCollection<TCadastro>();
 
         protected bool AlterarCadastro()
         {
@@ -119,5 +125,12 @@ namespace SisMens.ViewModel.Base
             if (ConsultarEntidade(ref cadastro))
                 CarregarCadastro(cadastro);
         }
+
+        public override void CarregarTodos()
+        {
+            ConsultarTudo<TCadastro>(ref Todos);
+        }
+
+
     }
 }

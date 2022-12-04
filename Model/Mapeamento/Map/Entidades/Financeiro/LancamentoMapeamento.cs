@@ -34,11 +34,23 @@ namespace SisMens.Model.Mapeamento.Map.Entidades.Financeiro
                 m.Access(Accessor.Field);
             });
 
+            Property(x => x.Pago, m =>
+            {
+                m.Column("pago");
+                m.Access(Accessor.Field);
+            });
+
+            Property(x => x.Dtpagto, m =>
+            {
+                m.Column("dtpagto");
+                m.Access(Accessor.Field);
+            });
+
             ManyToOne(x => x.Socio, m =>
             {
                 m.Column("idsocio");
                 m.Class(typeof(Socio));
-                m.Cascade(Cascade.All);
+                m.Cascade(Cascade.None);                
                 m.Fetch(FetchKind.Join);
                 m.Access(Accessor.Field);
                 m.Update(true);
