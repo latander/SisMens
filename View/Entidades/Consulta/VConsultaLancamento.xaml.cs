@@ -33,12 +33,18 @@ namespace SisMens.View.Entidades.Consulta
 
         public int ExisteLancamento(Lancamento lancamento)
         {
-            foreach (var (item, index) in _Lista)
+            int i = -1;
+            
+            foreach (var item in _Lista)
             {
-                if (item.ID == lancamento.ID) { return ; }
+                i++;
+                if (item.ID == lancamento.ID) { return i; }            
             }
 
-            return false;
+
+            _Lista.Add(lancamento);    
+            
+            return i;
         }
 
         private void btnSelecionar_Click(object sender, RoutedEventArgs e)
@@ -48,9 +54,17 @@ namespace SisMens.View.Entidades.Consulta
 
         private void dtgPesquisa_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            if (((sender as DataGrid).SelectedItem as Lancamento) != _Lancamento)
+            Lancamento nLanc = (sender as DataGrid).SelectedItem as Lancamento;
+            int i = ExisteLancamento(nLanc);
+
+            if (i >= 0)
             {
-                
+
+            }
+
+            if (nLanc != _Lancamento)
+            {
+                _Lista.RemoveAt(i);  
             }
         }
 
