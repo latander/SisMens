@@ -11,7 +11,9 @@ namespace SisMens
 
         /*
          * 
-         * create database sismens;
+         * 
+create database sismens;
+
 drop table if exists socio;
 drop table if exists lancamento;
 
@@ -37,6 +39,8 @@ create table "lancamento" (
 "idsocio" serial,
 "valor" numeric not null,
 "descricao" varchar,
+"pago" boolean,
+"dtpagto" date,
 primary key (id),
 constraint "fk_socio" foreign key (idsocio) references socio(id)
          * 

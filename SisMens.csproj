@@ -142,7 +142,6 @@
     <Compile Include="ViewModel\Base\VMBase.cs" />
     <Compile Include="ViewModel\Base\VMBaseCadastro.cs" />
     <Compile Include="ViewModel\Consultas\VMConsulta.cs" />
-    <Compile Include="ViewModel\Consultas\VMConsultaLancamento.cs" />
     <Compile Include="ViewModel\Entidades\Financeiro\VMLancamento.cs" />
     <Compile Include="ViewModel\Entidades\Participantes\VMSocio.cs" />
     <Compile Include="View\BotoesCadastros.xaml.cs">

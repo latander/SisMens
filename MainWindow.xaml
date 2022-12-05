@@ -10,13 +10,13 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="btv" />
 
-        <!-- style a top level menu item -->
+    
         <ControlTemplate x:Key="VsMenuTop" TargetType="MenuItem">
             <StackPanel TextBlock.FontSize="15px" Height="40">
-                <!-- label, icons, etc. -->
+              
                 <Label Content="{TemplateBinding Header}" Margin="5" Foreground="White" />
 
-                <!-- sub items -->
+              
                 <Popup IsOpen="{TemplateBinding IsSubmenuOpen}" AllowsTransparency="True" Focusable="False">
                     <Border BorderThickness="1" Background="White" BorderBrush="#E0E0E0">
                         <StackPanel IsItemsHost="True" />
@@ -34,17 +34,17 @@
             </StackPanel>
         </ControlTemplate>
 
-        <!-- style a non-top level menu item -->
+       
         <ControlTemplate x:Key="VsMenuSub" TargetType="MenuItem">
             <DockPanel TextBlock.FontSize="15px" x:Name="panel">
-                <!-- label, icons, etc. -->
+                
                 <Image Source="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Width="20" Margin="5,0" />
                 <Label Content="{TemplateBinding Header}" Foreground="Black" Margin="0,5,5,5" />
 
-                <!-- draw the right arrow only if this menu item has sub items -->
+                
                 <Image Source="icon_right.png" Visibility="{Binding HasItems, Converter={StaticResource btv}, RelativeSource={RelativeSource TemplatedParent}}" />
 
-                <!-- sub items -->
+                
                 <Popup IsOpen="{TemplateBinding IsSubmenuOpen}" AllowsTransparency="True" Focusable="False" Placement="Right" >
                     <Border BorderThickness="1" Background="White" BorderBrush="#E0E0E0">
                         <StackPanel IsItemsHost="True" />
@@ -58,18 +58,18 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
-        <!-- style the separator -->
+        
         <ControlTemplate x:Key="VsMenuSep" TargetType="Separator">
             <Border Height="1" Background="#E0E0E0" />
         </ControlTemplate>
 
-        <!-- style the VSOnline -->
+       
         <ControlTemplate x:Key="VsOnline" TargetType="MenuItem">
             <StackPanel TextBlock.FontSize="15px" Height="40" Orientation="Horizontal" Background="#005A9E">
                 <Label Content="{TemplateBinding Header}" Margin="5" Foreground="White" />
                 <Image Source="icon_down.png" Height="20" Margin="0,0,5,0" />
 
-                <!-- sub items -->
+                
                 <Popup IsOpen="{TemplateBinding IsSubmenuOpen}" AllowsTransparency="True" Focusable="False">
                     <Border BorderThickness="1" Background="White" BorderBrush="#E0E0E0">
                         <StackPanel IsItemsHost="True" />
@@ -78,7 +78,7 @@
             </StackPanel>
         </ControlTemplate>
 
-        <!-- some base stuff -->
+      
         <Style TargetType="Menu">
             <Setter Property="Background" Value="#0078D7" />
             <Setter Property="Height" Value="40px" />
@@ -105,7 +105,7 @@
                     <MenuItem Header="_Lançamento" Template="{StaticResource VsMenuSub}" Click="MenuItem_Click_2"/>
                 </MenuItem>
                 <MenuItem Header="_Listar" Template="{StaticResource VsMenuTop}">
-                    <MenuItem Header="_Sócios" Template="{StaticResource VsMenuSub}" Click="MenuItem_Click_1"/>
+               
                     <MenuItem Header="_Lançamentos" Template="{StaticResource VsMenuSub}" Click="MenuItem_Click_3" />
                 </MenuItem>
             </Menu>
@@ -118,6 +118,5 @@
         
     </Grid>
 
-    <!-- the real app and real menu -->
     
 </Window>

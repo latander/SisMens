@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SisMens.View.Entidades.Consulta"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600">
+             Height="450" Width="600">
+            
     <Grid x:Name="MainGrid" Background="#FFCFE3FF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -16,8 +17,8 @@
             <RowDefinition Height="45"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Label x:Name="label" Content="Pesquisar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,0,0,0"/>
-        <TextBox x:Name="txtPesquisar" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="436" Margin="4"/>
+        <Label x:Name="label" Content="Pesquisar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,0,0,0"/>
+        <TextBox x:Name="txtPesquisar" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="436" Margin="4" TextChanged="txtPesquisar_TextChanged"/>
 
         <DataGrid x:Name="dtgPesquisa" HorizontalAlignment="Center" VerticalAlignment="Top" Height="220" Width="590" 
                   Grid.Row="1" Margin="4"
@@ -36,7 +37,7 @@
                 <DataGridCheckBoxColumn Header="Pago" Binding="{Binding Path=Pago, Mode=TwoWay}" Width="65" />
             </DataGrid.Columns>
         </DataGrid> 
-        <Button Grid.Row="2" x:Name="btnSelecionar" Content="Selecionar" HorizontalAlignment="Right" Margin="0,0,130,0"  VerticalAlignment="Center" Width="74" Click="btnSelecionar_Click"/>
-        <Button Grid.Row="2" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,35,0" VerticalAlignment="Center" Width="74"/>
+        <Button Grid.Row="2" x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,130,0"  VerticalAlignment="Center" Width="74" Click="btnSelecionar_Click"/>
+        <Button Grid.Row="2" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,35,0" VerticalAlignment="Center" Width="74" Click="btnCancelar_Click"/>
     </Grid>
 </UserControl>
