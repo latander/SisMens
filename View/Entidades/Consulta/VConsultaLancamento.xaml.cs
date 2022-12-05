@@ -87,6 +87,8 @@ namespace SisMens.View.Entidades.Consulta
             VMLancamento view = new VMLancamento();
             view.CarregarTodos();
             DataContext = view.Todos;
+
+            _Lista.Clear();
         }
     }
 }
